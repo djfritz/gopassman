@@ -106,8 +106,13 @@ func handle_n(entry string) {
 }
 
 // modify
-func handle_m(entry string) {
+func handle_m(e string) {
 	password, keys := get_private_data(false)
+	entry, err := apropos(e, keys)
+	if err != nil {
+		log_dieln(err)
+	}
+	fmt.Printf("modifying entry %v\n", entry)
 
 	// check for entry
 	if keys[entry] == nil {

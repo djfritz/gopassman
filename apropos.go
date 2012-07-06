@@ -14,6 +14,7 @@ func apropos(s string, keys map[string]*s_key) (string, error) {
 			entries = append(entries, entry)
 		}
 	}
+	log_info("apropos found %v entries\n", len(entries))
 	if len(entries) == 1 {
 		return entries[0], nil
 	} else if len(entries) > 1 {
